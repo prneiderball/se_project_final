@@ -2,12 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 26px 104px;
+  padding: 30px 104px 26px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.1);
 }
 
 .header__logo {
@@ -33,6 +34,37 @@
   transition: opacity 0.3s ease;
   color: white;
   font-family: inherit;
+}
+
+.header__button:focus,
+.header__button:focus-visible,
+.header__button:active {
+  outline: none;
+}
+
+.header__button {
+  position: relative;
+  padding: 12px 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.header__button--home::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -27px;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+.header__button--home {
+  outline: none;
+  
 }
 
 .header__button:hover {
