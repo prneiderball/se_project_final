@@ -5,12 +5,9 @@ import Header from '../Header/Header.jsx'
 function App() {
 
   return (
-    <>
+    <div className='app'>
       <Header />
-      
-      <h1>What's going on in the world?</h1>
-      <p>Find the latest news on any topic and save them in your personal account.</p>
-    </>
+    </div>
   )
 }
 
