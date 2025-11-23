@@ -3,3 +3,10 @@
   margin: 0 auto;
   min-height: 100vh;
 }
+
+.page__background-img {
+  background-image: url(../../assets/newsexplorerbackground.svg);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
