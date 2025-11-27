@@ -1,5 +1,6 @@
 .results {
   padding: 80px 0;
+  border-bottom: 1px solid red;
 }
 
 .results__title {
@@ -9,8 +10,28 @@
 }
 
 .results__grid {
-  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 40px 104px;
+}
+
+.results__actions {
   display: flex;
-  gap: 24px;
-  padding: 0 104px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.results__show-more {
+  background-color: #347eff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 36px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.results__show-more:hover {
+  background-color: #2c6de0;
 }
