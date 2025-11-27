@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import SearchForm from "../SearchForm/SearchForm";
 
 function Hero() {
   return (
@@ -10,14 +11,7 @@ function Hero() {
           Find the latest news on any topic and save them in your personal
           account.
         </p>
-        <div className="hero__search">
-          <input
-            type="text"
-            className="hero__search-input"
-            placeholder="Enter topic"
-          ></input>
-          <button className="hero__search-button">Search</button>
-        </div>
+        <SearchForm />
       </div>
     </section>
   );

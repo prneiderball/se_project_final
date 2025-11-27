@@ -1,0 +1,35 @@
+.search__input {
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 1);
+  border: rgb(209, 210, 214) 1px solid;
+  width: 608px;
+  height: 62px;
+  padding: 0;
+  color: black;
+  padding-left: 24px;
+}
+
+.search__input:focus {
+    outline: none;
+    color: black;
+}
+
+.search__input::placeholder {
+    color: rgba(182, 188, 191, 1)
+}
+
+.search__button {
+  position: absolute;
+  right: 1px;
+  bottom: 0px;
+  width: 168px;
+  height: 64px;
+  border-radius: 100px;
+  padding: 0;
+  background-color: rgb(47, 113, 229);
+}
+
+.search__button:hover {
+    background-color: rgb(52, 126, 255);
+    cursor: pointer;
+}
