@@ -17,9 +17,10 @@
   font-size: 60px;
   line-height: 64px;
   margin: 0 0 32px 0;
+  color: #fff;
 }
 
 .hero__subtitle {
   margin: 0 0 88px 0;
-  font-family: roboto, arial, sans-serif;
+  color: #fff;  
 }
