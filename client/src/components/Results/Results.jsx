@@ -1,11 +1,13 @@
 import React from "react";
 import "./Results.css";
 import NewsCard from "../NewsCard/NewsCard";
+import Preloader from "../Preloader/Preloader";
 
 function Results() {
   return (
     <section className="results">
       <h2 className="results__title">Search Results</h2>
+      <Preloader />
       <div className="results__grid">
         <NewsCard />
         <NewsCard />
