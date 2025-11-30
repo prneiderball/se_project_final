@@ -4,6 +4,7 @@ import Header from "../Header/Header.jsx";
 import Hero from "../Hero/Hero.jsx";
 import About from "../About/About.jsx";
 import Results from "../Results/Results.jsx";
+import NotFound from "../NotFound/NotFound.jsx";
 
 function App() {
   return (
@@ -12,7 +13,6 @@ function App() {
         <Header />
         <Hero />
       </div>
-      <Results />
       <About />
     </div>
   );
