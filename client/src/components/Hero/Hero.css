@@ -7,10 +7,10 @@
 .hero__content {
   position: absolute;
   top: 150px;
-  left: 250px;
+  left: 355px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hero__title {
@@ -18,6 +18,8 @@
   line-height: 64px;
   margin: 0 0 32px 0;
   color: #fff;
+  max-width: 608px;
+  font-weight: normal;
 }
 
 .hero__subtitle {
