@@ -1,15 +1,24 @@
 import "./App.css";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "../Header/Header.jsx";
 import Hero from "../Hero/Hero.jsx";
 import About from "../About/About.jsx";
 import Footer from "../Footer/Footer.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
-
+import SuccessModel from "../SuccessModel/SuccessModel.jsx";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
+
+  function openModal(name) {
+    setActiveModal(name);
+  }
+
+  function closeModal() {
+    setActiveModal(null);
+  }
 
   return (
     <>
@@ -26,6 +35,12 @@ function App() {
           <Route path="/" element={<About />} />
           <Route path="/saved-news" element={<SavedNews />} />
         </Routes>
+        <SuccessModel
+          isOpen={activeModal === "success"}
+          onClose={closeModal}
+          openModal={openModal}
+        />
+        <button onClick={() => openModal("success")}>Test Success Modal</button>
 
         <Footer />
       </div>

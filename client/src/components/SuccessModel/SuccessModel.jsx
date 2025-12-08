@@ -7,12 +7,26 @@ function SuccessModel({ isOpen, onClose, openModal }) {
 
   return (
     <div className="modal modal--visible">
-      <div className="modal__content">
-        <button onClick={onClose} type="button" className="modal__close">
+      <div className="modal__content modal__content_type_success">
+        <button
+          onClick={onClose}
+          type="button"
+          className="modal__close"
+        >
           <img src={CloseIcon} alt="Close icon" />
         </button>
-        <p>Registration completed successfully</p>
-        <button onClick={openModal}>Go to Sign In</button>
+
+        <h2 className="modal__title modal__title_type_success">
+          Registration successfully completed!
+        </h2>
+
+        <button
+          type="button"
+          className="modal__redirect"
+          onClick={() => openModal("login")}
+        >
+          Sign in
+        </button>
       </div>
     </div>
   );
