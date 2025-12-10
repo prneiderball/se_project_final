@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navigation.css";
+import LogoutIcon from "../../assets/logout.svg";
 import { NavLink } from "react-router-dom";
 
 function Navigation({ isLoggedIn, openModal }) {
@@ -25,10 +26,17 @@ function Navigation({ isLoggedIn, openModal }) {
         </NavLink>
       )}
 
-      {!isLoggedIn && <button onClick={()=>openModal('login')} className="nav__button">Sign in</button>}
+      {!isLoggedIn && (
+        <button onClick={() => openModal("login")} className="nav__button">
+          Sign in
+        </button>
+      )}
 
       {isLoggedIn && (
-        <button className="nav__button nav__button_logged-in">Elise ▾</button>
+        <button className="nav__button nav__button_logged-in">
+          <span className="nav__username">Elise</span>
+          <img src={LogoutIcon} alt="Log out" className="nav__logout-icon" />
+        </button>
       )}
     </nav>
   );
