@@ -7,6 +7,8 @@ import About from "../About/About.jsx";
 import Footer from "../Footer/Footer.jsx";
 import SavedNews from "../SavedNews/SavedNews.jsx";
 import SuccessModel from "../SuccessModel/SuccessModel.jsx";
+import LoginModal from "../LoginModal/LoginModal.jsx";
+import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,13 +37,31 @@ function App() {
           <Route path="/" element={<About />} />
           <Route path="/saved-news" element={<SavedNews />} />
         </Routes>
+        <LoginModal
+          isOpen={activeModal === "login"}
+          onClose={closeModal}
+          openModal={openModal}
+        />
+
+        <RegisterModal
+          isOpen={activeModal === "register"}
+          onClose={closeModal}
+          openModal={openModal}
+        />
+
         <SuccessModel
           isOpen={activeModal === "success"}
           onClose={closeModal}
           openModal={openModal}
         />
-        <button onClick={() => openModal("success")}>Test Success Modal</button>
 
+        <button onClick={() => openModal("success")}>Test Success Modal</button>
+        <button onClick={() => openModal("register")}>
+          Test Register Modal
+        </button>
+        <button onClick={() => openModal("login")}>
+          Test login Modal
+        </button>
         <Footer />
       </div>
     </>
