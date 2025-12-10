@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <div className="page__background-img">
-        <Header isLoggedIn={isLoggedIn} />
+        <Header isLoggedIn={isLoggedIn} openModal={openModal} />
 
         <Routes>
           <Route path="/" element={<Hero />} />
@@ -54,14 +54,6 @@ function App() {
           onClose={closeModal}
           openModal={openModal}
         />
-
-        <button onClick={() => openModal("success")}>Test Success Modal</button>
-        <button onClick={() => openModal("register")}>
-          Test Register Modal
-        </button>
-        <button onClick={() => openModal("login")}>
-          Test login Modal
-        </button>
         <Footer />
       </div>
     </>

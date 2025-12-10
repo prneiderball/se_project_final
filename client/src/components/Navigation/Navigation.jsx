@@ -2,7 +2,7 @@ import React from "react";
 import "./Navigation.css";
 import { NavLink } from "react-router-dom";
 
-function Navigation({ isLoggedIn }) {
+function Navigation({ isLoggedIn, openModal }) {
   return (
     <nav className="nav">
       <NavLink
@@ -25,7 +25,7 @@ function Navigation({ isLoggedIn }) {
         </NavLink>
       )}
 
-      {!isLoggedIn && <button className="nav__button">Sign in</button>}
+      {!isLoggedIn && <button onClick={()=>openModal('login')} className="nav__button">Sign in</button>}
 
       {isLoggedIn && (
         <button className="nav__button nav__button_logged-in">Elise ▾</button>
