@@ -17,15 +17,17 @@
 .nav__link_active::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -8px;
-  height: 2px;
+  left: -10px;
+  bottom: -35px;
+  width: 68px;
+  height: 3px;
   background-color: #fff;
   border-radius: 2px;
 }
 
 .nav__button {
+  width: 176px;
+  height: 48px;
   padding: 11px 24px;
   background-color: transparent;
   color: #fff;
