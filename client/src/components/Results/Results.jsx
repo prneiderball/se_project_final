@@ -3,7 +3,7 @@ import "./Results.css";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 
-function Results() {
+function Results({ articles, isLoading}) {
   return (
     <section className="results">
       <h2 className="results__title">Search Results</h2>

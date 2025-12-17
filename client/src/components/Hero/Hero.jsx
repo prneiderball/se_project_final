@@ -2,7 +2,7 @@ import React from "react";
 import "./Hero.css";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Hero() {
+function Hero({ onSearch }) {
   return (
     <section className="hero">
       <div className="hero__content">
@@ -11,7 +11,7 @@ function Hero() {
           Find the latest news on any topic and save them in your personal
           account.
         </p>
-        <SearchForm />
+        <SearchForm onSearch={onSearch} />
       </div>
     </section>
   );
