@@ -17,6 +17,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
+  const [ hasSearched, setHasSearched ] = useState(false);
 
   function openModal(name) {
     setActiveModal(name);
@@ -27,6 +28,7 @@ function App() {
   }
 
   function handleSearch(keyword) {
+    setHasSearched(true);
     setError(null);
     setIsLoading(true);
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -70,6 +72,8 @@ function App() {
                   articles={articles}
                   isLoading={isLoading}
                   error={error}
+                  hasSearched={hasSearched}
+                  isLoggedIn={isLoggedIn}
                 />
                 <About />
               </>
