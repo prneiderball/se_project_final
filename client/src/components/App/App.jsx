@@ -17,7 +17,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
-  const [ hasSearched, setHasSearched ] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [savedArticles, setSavedArticles] = useState([]);
+  const [ searchError, setSearchError ] = useState(null)
 
   function openModal(name) {
     setActiveModal(name);
@@ -28,46 +30,59 @@ function App() {
   }
 
   function handleSearch(keyword) {
+    if (!keyword) {
+      setSearchError("Please enter keyword");
+      return;
+    }
+    setSearchError("");
     setHasSearched(true);
     setError(null);
     setIsLoading(true);
+
     const apiKey = import.meta.env.VITE_API_KEY;
     const baseUrl = import.meta.env.VITE_BASE_URL;
+
     const today = new Date();
     const fromDate = new Date();
     fromDate.setDate(today.getDate() - 7);
+
     const to = today.toISOString().split("T")[0];
     const from = fromDate.toISOString().split("T")[0];
+
     const url = `${baseUrl}?q=${keyword}&from=${from}&to=${to}&pageSize=100&apiKey=${apiKey}`;
-    console.log(url);
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setArticles(data.articles);
+        setArticles(data.articles || []);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setError("Sorry, something went wrong.");
         setIsLoading(false);
       });
   }
+
+  function handleSaveArticle(article) {
+    saveArticle(article).then((savedArticle) => {
+      setSavedArticles((prev) => [...prev, savedArticle]);
+    });
+  }
+
   return (
     <>
-      <div className="page__background-img">
-        <Header isLoggedIn={isLoggedIn} openModal={openModal} />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Hero onSearch={handleSearch} />{" "}
-              </>
-            }
-          />
-        </Routes>
-      </div>
-      <div className="app">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
+      <Header isLoggedIn={isLoggedIn} openModal={openModal} />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="page__background-img">
+                <Hero onSearch={handleSearch} />
+              </div>
+
+              <div className="app">
                 <Results
                   articles={articles}
                   isLoading={isLoading}
@@ -76,29 +91,43 @@ function App() {
                   isLoggedIn={isLoggedIn}
                 />
                 <About />
-              </>
-            }
-          />
-          <Route path="/saved-news" element={<SavedNews />} />
-        </Routes>
-        <LoginModal
-          isOpen={activeModal === "login"}
-          onClose={closeModal}
-          openModal={openModal}
+              </div>
+            </>
+          }
         />
-        <RegisterModal
-          isOpen={activeModal === "register"}
-          onClose={closeModal}
-          openModal={openModal}
+        <Route
+          path="/saved-news"
+          element={
+            <div className="app">
+              <SavedNews
+                savedArticles={savedArticles}
+                setSavedArticles={setSavedArticles}
+              />
+            </div>
+          }
         />
-        <SuccessModel
-          isOpen={activeModal === "success"}
-          onClose={closeModal}
-          openModal={openModal}
-        />
-        <Footer />
-      </div>
+      </Routes>
+
+      <LoginModal
+        isOpen={activeModal === "login"}
+        onClose={closeModal}
+        openModal={openModal}
+      />
+
+      <RegisterModal
+        isOpen={activeModal === "register"}
+        onClose={closeModal}
+        openModal={openModal}
+      />
+
+      <SuccessModel
+        isOpen={activeModal === "success"}
+        onClose={closeModal}
+        openModal={openModal}
+      />
+      <Footer />
     </>
   );
 }
+
 export default App;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./NewsCard.css";
 
-function NewsCard({ article, isLoggedIn }) {
+function NewsCard({ article, isLoggedIn, isSaved }) {
   const { title, description, publishedAt, urlToImage, source } = article;
 
   return (
