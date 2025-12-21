@@ -34,6 +34,7 @@ function App() {
       setSearchError("Please enter keyword");
       return;
     }
+
     setSearchError("");
     setHasSearched(true);
     setError(null);
@@ -79,7 +80,7 @@ function App() {
           element={
             <>
               <div className="page__background-img">
-                <Hero onSearch={handleSearch} />
+                <Hero searchError={searchError} onSearch={handleSearch} />
               </div>
 
               <div className="app">

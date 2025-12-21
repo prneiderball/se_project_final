@@ -1,3 +1,6 @@
+.search {
+  position: relative;
+}
 .search__input {
   width: 608px;
   height: 62px;
@@ -17,10 +20,18 @@
   color: rgb(182, 188, 191);
 }
 
+.search__input_error {
+  border: 2px solid #ff6b6b;
+}
+
+.search__input_error:focus {
+  box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.25);
+}
+
 .search__button {
   position: absolute;
-  right: 1px;
-  bottom: 0;
+  top: 0;
+  right: 0;
   width: 168px;
   height: 64px;
   padding: 0;
@@ -32,4 +43,14 @@
 
 .search__button:hover {
   background-color: rgb(52, 126, 255);
+}
+
+.search__error {
+  display: block;
+  min-height: 14px;
+  margin-top: 6px;
+  padding-left: 24px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.85);
 }
