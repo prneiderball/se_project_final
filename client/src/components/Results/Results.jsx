@@ -4,8 +4,16 @@ import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import NotFound from "../NotFound/NotFound";
 
-function Results({ articles, isLoading, error, hasSearched, isLoggedIn }) {
-  const [visibleCount, setVisibleCount] = useState(3);
+function Results({
+  articles,
+  isLoading,
+  error,
+  hasSearched,
+  isLoggedIn,
+  visibleCount,
+  setVisibleCount,
+}) {
+  const canShowMore = articles.length > visibleCount;
 
   function handleShowMore() {
     setVisibleCount((prevCount) => prevCount + 3);
@@ -48,15 +56,21 @@ function Results({ articles, isLoading, error, hasSearched, isLoggedIn }) {
 
       <div className="results__grid">
         {articles.slice(0, visibleCount).map((article, index) => (
-          <NewsCard key={index} article={article} isLoggedIn={isLoggedIn} />
+          <NewsCard
+            key={article.url}
+            article={article}
+            isLoggedIn={isLoggedIn}
+          />
         ))}
       </div>
 
-      <div className="results__actions">
-        <button className="results__show-more" onClick={handleShowMore}>
-          Show more
-        </button>
-      </div>
+      {canShowMore && (
+        <div className="results__actions">
+          <button className="results__show-more" onClick={handleShowMore}>
+            Show more
+          </button>
+        </div>
+      )}
     </section>
   );
 }

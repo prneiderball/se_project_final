@@ -10,6 +10,7 @@ import SavedNews from "../SavedNews/SavedNews.jsx";
 import SuccessModel from "../SuccessModel/SuccessModel.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
+import { searchNews } from "../../utils/newsApi.js";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,7 +20,8 @@ function App() {
   const [error, setError] = useState(null);
   const [hasSearched, setHasSearched] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
-  const [ searchError, setSearchError ] = useState(null)
+  const [searchError, setSearchError] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(3);
 
   function openModal(name) {
     setActiveModal(name);
@@ -36,30 +38,21 @@ function App() {
     }
 
     setSearchError("");
+    setVisibleCount(3);
     setHasSearched(true);
     setError(null);
     setIsLoading(true);
 
-    const apiKey = import.meta.env.VITE_API_KEY;
-    const baseUrl = import.meta.env.VITE_BASE_URL;
-
-    const today = new Date();
-    const fromDate = new Date();
-    fromDate.setDate(today.getDate() - 7);
-
-    const to = today.toISOString().split("T")[0];
-    const from = fromDate.toISOString().split("T")[0];
-
-    const url = `${baseUrl}?q=${keyword}&from=${from}&to=${to}&pageSize=100&apiKey=${apiKey}`;
-
-    fetch(url)
-      .then((res) => res.json())
+    searchNews(keyword)
       .then((data) => {
         setArticles(data.articles || []);
-        setIsLoading(false);
       })
       .catch(() => {
-        setError("Sorry, something went wrong.");
+        setError(
+          "Sorry, something went wrong during the request. Please try again later."
+        );
+      })
+      .finally(() => {
         setIsLoading(false);
       });
   }
@@ -90,6 +83,8 @@ function App() {
                   error={error}
                   hasSearched={hasSearched}
                   isLoggedIn={isLoggedIn}
+                  visibleCount={visibleCount}
+                  setVisibleCount={setVisibleCount}
                 />
                 <About />
               </div>
