@@ -33,7 +33,7 @@ function App() {
 
   function handleSearch(keyword) {
     if (!keyword) {
-      setSearchError("Please enter keyword");
+      setSearchError("Please enter a keyword");
       return;
     }
 
