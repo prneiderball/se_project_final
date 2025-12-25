@@ -8,21 +8,18 @@ function About() {
       <div className="about__column-text">
         <h2 className="about__title">About the author</h2>
         <p className="about__text">
-          I’m, Phillip, a backend specialized full-stack developer who loves
-          taking complicated systems and making them understandable and usable.
-          I work best when I’m able to step back and see how everything fits
-          together...architecture, behavior, and the way real people actually
-          interact with software. I tend to pick things up quickly, and I care a
-          lot about how human psychology and user behavior shape good
-          engineering decisions.
+          I'm Phillip, a full-stack developer specializing in JavaScript. I
+          build web applications using React, Node.js, Express, and REST APIs,
+          with experience in user authentication, database integration, and
+          responsive frontend design.
         </p>
         <p className="about__text">
-          During my recent training with TripleTen, I worked through several full-stack
-          projects that strengthened my understanding of backend logic, API
-          design, and systems thinking. More importantly, it clarified how I
-          want to build software: by focusing on clarity, human behavior, and
-          the real problems users face. Everything I learn is aimed at becoming
-          more effective at creating tools that genuinely help people.
+          Through TripleTen's software engineering bootcamp, I completed several
+          full-stack projects including WTWR, a weather-based clothing
+          recommendation app that integrates external APIs, along with backend
+          API development and task management applications. These projects
+          demonstrate my ability to build complete applications from database
+          design through frontend implementation.
         </p>
       </div>
     </section>
