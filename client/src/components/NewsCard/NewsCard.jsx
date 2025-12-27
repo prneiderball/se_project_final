@@ -1,18 +1,27 @@
 import React from "react";
 import "./NewsCard.css";
 
-function NewsCard({ article, isLoggedIn, isSaved }) {
+function NewsCard({ article, isLoggedIn, isSaved, onDelete }) {
   const { title, description, publishedAt, urlToImage, source } = article;
 
   return (
     <div className="news-card">
       <button
         className={`news-card__bookmark ${
-          !isLoggedIn ? "news-card__bookmark_inactive" : ""
+          !isLoggedIn
+            ? "news-card__bookmark_inactive"
+            : isSaved
+            ? "news-card__bookmark_active"
+            : ""
         }`}
         type="button"
+        onClick={() => {
+          if (isSaved && onDelete) {
+            onDelete(article);
+          }
+        }}
       >
-        {!isLoggedIn && (
+        {!isLoggedIn && !isSaved && (
           <span className="news-card__tooltip">Sign in to save articles</span>
         )}
       </button>
