@@ -35,8 +35,7 @@ function Results({
     return (
       <section className="results">
         <p className="results__error">
-          Sorry, something went wrong during the request. Please try again
-          later.
+          {error}
         </p>
       </section>
     );
@@ -60,6 +59,7 @@ function Results({
             key={article.url}
             article={article}
             isLoggedIn={isLoggedIn}
+            onDelete={onDelete}
           />
         ))}
       </div>
