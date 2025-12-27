@@ -11,9 +11,10 @@ import SuccessModel from "../SuccessModel/SuccessModel.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import { searchNews } from "../../utils/newsApi.js";
+import { saveArticle, removeArticle } from "../../utils/api.js";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [activeModal, setActiveModal] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [articles, setArticles] = useState([]);
@@ -85,6 +86,8 @@ function App() {
                   isLoggedIn={isLoggedIn}
                   visibleCount={visibleCount}
                   setVisibleCount={setVisibleCount}
+                  savedArticles={savedArticles}
+                  onSaveArticle={handleSaveArticle}
                 />
                 <About />
               </div>

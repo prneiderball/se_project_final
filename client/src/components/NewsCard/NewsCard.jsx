@@ -1,7 +1,7 @@
 import React from "react";
 import "./NewsCard.css";
 
-function NewsCard({ article, isLoggedIn, isSaved, onDelete }) {
+function NewsCard({ article, isLoggedIn, isSaved, onSave, onDelete }) {
   const { title, description, publishedAt, urlToImage, source } = article;
 
   return (
@@ -16,8 +16,8 @@ function NewsCard({ article, isLoggedIn, isSaved, onDelete }) {
         }`}
         type="button"
         onClick={() => {
-          if (isSaved && onDelete) {
-            onDelete(article);
+          if (isLoggedIn && !isSaved && onSave) {
+            onSave(article);
           }
         }}
       >

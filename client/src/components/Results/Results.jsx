@@ -12,6 +12,8 @@ function Results({
   isLoggedIn,
   visibleCount,
   setVisibleCount,
+  onSaveArticle,
+  savedArticles=[]
 }) {
   const canShowMore = articles.length > visibleCount;
 
@@ -34,9 +36,7 @@ function Results({
   if (error) {
     return (
       <section className="results">
-        <p className="results__error">
-          {error}
-        </p>
+        <p className="results__error">{error}</p>
       </section>
     );
   }
@@ -59,7 +59,8 @@ function Results({
             key={article.url}
             article={article}
             isLoggedIn={isLoggedIn}
-            onDelete={onDelete}
+            isSaved={savedArticles.some((saved) => saved.url === article.url)}
+            onSave={onSaveArticle}
           />
         ))}
       </div>

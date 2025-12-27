@@ -25,6 +25,10 @@
   background: url(../../assets/bookmark-hover.svg);
 }
 
+.news-card__bookmark_active, .news-card__bookmark_active:hover {
+  background: url(../../assets/bookmark-icon__active.svg);
+}
+
 .news-card__tooltip {
   position: absolute;
   top: 0;
