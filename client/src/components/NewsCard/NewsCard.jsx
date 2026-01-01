@@ -6,18 +6,19 @@ function NewsCard({ article, isLoggedIn, isSaved, onSave, onDelete }) {
 
   return (
     <div className="news-card">
+      <span className="news-card__keyword">{article.keyword}</span>
       <button
         className={`news-card__bookmark ${
-          !isLoggedIn
-            ? "news-card__bookmark_inactive"
-            : isSaved
+          isSaved
             ? "news-card__bookmark_active"
+            : !isLoggedIn
+            ? "news-card__bookmark_inactive"
             : ""
         }`}
         type="button"
         onClick={() => {
-          if (isLoggedIn && !isSaved && onSave) {
-            onSave(article);
+          if (isSaved && onDelete) {
+            onDelete(article);
           }
         }}
       >

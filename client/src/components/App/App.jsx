@@ -23,7 +23,7 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const [searchError, setSearchError] = useState(null);
   const [visibleCount, setVisibleCount] = useState(3);
-
+ 
   function openModal(name) {
     setActiveModal(name);
   }

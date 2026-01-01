@@ -8,6 +8,18 @@
   position: relative;
 }
 
+.news-card__keyword {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 2;
+}
+
 .news-card__bookmark {
   position: absolute;
   top: 16px;
@@ -20,7 +32,7 @@
   cursor: pointer;
 }
 
-.news-card__bookmark:hover {
+.news-card__bookmark:not(.news-card__bookmark_active):hover {
   background: url(../../assets/bookmark-hover.svg);
 }
 

@@ -1,5 +1,29 @@
-.saved-news {
-  background-color: #f5f6f7;
-  min-height: 100vh;
-  padding: 40px 104px 80px;
+.saved-news__header {
+  max-width: 1440px;
+  margin: 0 auto 40px;
+}
+
+.saved-news__subtitle {
+  font-size: 18px;
+  color: #1a1b22;
+  margin-bottom: 12px;
+}
+
+.saved-news__title {
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.saved-news__keywords {
+  font-size: 18px;
+  color: #1a1b22;
+}
+
+.saved-news__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 16px;
+  max-width: 1440px;
+  margin: 0 auto;
 }

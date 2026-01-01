@@ -6,9 +6,7 @@ import "./SavedNews.css";
 function SavedNews({ savedArticles, setSavedArticles }) {
   function handleDelete(article) {
     removeArticle(article._id).then(() => {
-      setSavedArticles((prev) =>
-        prev.filter((a) => a._id !== article._id)
-      );
+      setSavedArticles((prev) => prev.filter((a) => a._id !== article._id));
     });
   }
 
@@ -28,7 +26,8 @@ function SavedNews({ savedArticles, setSavedArticles }) {
           <NewsCard
             key={article._id}
             article={article}
-            mode="saved"
+            isSaved={true}
+            isLoggedIn={true}
             onDelete={handleDelete}
           />
         ))}
