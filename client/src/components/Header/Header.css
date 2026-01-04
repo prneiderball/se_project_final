@@ -70,3 +70,34 @@
 .header__button--signin:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+.header_light {
+  color: #fff;
+}
+
+.header_dark {
+  background-color: #fff;
+  border-bottom: 1px solid #d1d2d6;
+}
+
+.header_dark .header__logo {
+  color: #1a1b22;
+}
+
+.header_dark .nav__link {
+  color: #1a1b22;
+}
+
+.header_dark .nav__link::after {
+  background-color: #1a1b22;
+}
+
+.header_dark .nav__button,
+.header_dark .nav__button_logged-in {
+  color: #1a1b22;
+  border-color: #1a1b22;
+}
+
+.header_dark .nav__logout-icon {
+  filter: invert(1);
+}
