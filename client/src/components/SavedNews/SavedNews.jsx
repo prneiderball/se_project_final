@@ -5,8 +5,8 @@ import "./SavedNews.css";
 
 function SavedNews({ savedArticles, setSavedArticles }) {
   function handleDelete(article) {
-    removeArticle(article._id).then(() => {
-      setSavedArticles((prev) => prev.filter((a) => a._id !== article._id));
+    removeArticle(article.url).then(() => {
+      setSavedArticles((prev) => prev.filter((a) => a.url !== article.url));
     });
   }
 
@@ -21,10 +21,11 @@ function SavedNews({ savedArticles, setSavedArticles }) {
           By keywords: Nature, Yellowstone, and 2 others
         </p>
       </div>
+
       <div className="saved-news__grid">
         {savedArticles.map((article) => (
           <NewsCard
-            key={article._id}
+            key={article.url}
             article={article}
             isSaved={true}
             isLoggedIn={true}

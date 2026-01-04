@@ -6,7 +6,10 @@ function NewsCard({ article, isLoggedIn, isSaved, onSave, onDelete }) {
 
   return (
     <div className="news-card">
-      <span className="news-card__keyword">{article.keyword}</span>
+      {article.keyword && (
+        <span className="news-card__keyword">{article.keyword}</span>
+      )}
+
       <button
         className={`news-card__bookmark ${
           isSaved

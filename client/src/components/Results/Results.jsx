@@ -59,13 +59,8 @@ function Results({
             key={article.url}
             article={article}
             isLoggedIn={isLoggedIn}
-            isSaved={savedArticles.some((saved) => saved.url === article.url)}
+            isSaved={savedArticles.some((a) => a.url === article.url)}
             onSave={onSaveArticle}
-            onDelete={(article) =>
-              setSavedArticles((prev) =>
-                prev.filter((a) => a.url !== article.url)
-              )
-            }
           />
         ))}
       </div>
