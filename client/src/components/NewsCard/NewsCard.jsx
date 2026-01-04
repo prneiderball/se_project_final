@@ -17,12 +17,16 @@ function NewsCard({ article, isLoggedIn, isSaved, onSave, onDelete }) {
         }`}
         type="button"
         onClick={() => {
-          if (isSaved && onDelete) {
-            onDelete(article);
+          if (!isLoggedIn) return;
+
+          if (isSaved) {
+            onDelete?.(article);
+          } else {
+            onSave?.(article);
           }
         }}
       >
-        {!isLoggedIn && !isSaved && (
+        {!isLoggedIn && (
           <span className="news-card__tooltip">Sign in to save articles</span>
         )}
       </button>

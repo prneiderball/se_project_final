@@ -23,7 +23,7 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const [searchError, setSearchError] = useState(null);
   const [visibleCount, setVisibleCount] = useState(3);
- 
+
   function openModal(name) {
     setActiveModal(name);
   }
@@ -65,47 +65,52 @@ function App() {
   }
 
   return (
-    <>
+    <div className="page">
       <Header isLoggedIn={isLoggedIn} openModal={openModal} />
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <div className="page__background-img">
-                <Hero searchError={searchError} onSearch={handleSearch} />
-              </div>
+      <main className="page__content">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="page__background-img">
+                  <Hero searchError={searchError} onSearch={handleSearch} />
+                </div>
 
+                <div className="app">
+                  <Results
+                    articles={articles}
+                    isLoading={isLoading}
+                    error={error}
+                    hasSearched={hasSearched}
+                    isLoggedIn={isLoggedIn}
+                    visibleCount={visibleCount}
+                    setVisibleCount={setVisibleCount}
+                    savedArticles={savedArticles}
+                    onSaveArticle={handleSaveArticle}
+                  />
+                  <About />
+                </div>
+              </>
+            }
+          />
+
+          <Route
+            path="/saved-news"
+            element={
               <div className="app">
-                <Results
-                  articles={articles}
-                  isLoading={isLoading}
-                  error={error}
-                  hasSearched={hasSearched}
-                  isLoggedIn={isLoggedIn}
-                  visibleCount={visibleCount}
-                  setVisibleCount={setVisibleCount}
+                <SavedNews
                   savedArticles={savedArticles}
-                  onSaveArticle={handleSaveArticle}
+                  setSavedArticles={setSavedArticles}
                 />
-                <About />
               </div>
-            </>
-          }
-        />
-        <Route
-          path="/saved-news"
-          element={
-            <div className="app">
-              <SavedNews
-                savedArticles={savedArticles}
-                setSavedArticles={setSavedArticles}
-              />
-            </div>
-          }
-        />
-      </Routes>
+            }
+          />
+        </Routes>
+      </main>
+
+      <Footer />
 
       <LoginModal
         isOpen={activeModal === "login"}
@@ -124,8 +129,7 @@ function App() {
         onClose={closeModal}
         openModal={openModal}
       />
-      <Footer />
-    </>
+    </div>
   );
 }
 

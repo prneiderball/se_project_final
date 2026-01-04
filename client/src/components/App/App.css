@@ -1,7 +1,6 @@
 .app {
   max-width: 1440px;
   margin: 0 auto;
-  max-height: 100vh;
 }
 
 .page__background-img {
@@ -11,7 +10,4 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  display: flex;
-  flex-direction: column;
 }

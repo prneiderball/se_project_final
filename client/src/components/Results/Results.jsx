@@ -13,7 +13,7 @@ function Results({
   visibleCount,
   setVisibleCount,
   onSaveArticle,
-  savedArticles=[]
+  savedArticles = [],
 }) {
   const canShowMore = articles.length > visibleCount;
 
@@ -61,6 +61,11 @@ function Results({
             isLoggedIn={isLoggedIn}
             isSaved={savedArticles.some((saved) => saved.url === article.url)}
             onSave={onSaveArticle}
+            onDelete={(article) =>
+              setSavedArticles((prev) =>
+                prev.filter((a) => a.url !== article.url)
+              )
+            }
           />
         ))}
       </div>
