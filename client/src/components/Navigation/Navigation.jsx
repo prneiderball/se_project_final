@@ -34,7 +34,7 @@ function Navigation({ isLoggedIn, openModal }) {
 
       {isLoggedIn && (
         <button className="nav__button nav__button_logged-in">
-          <span className="nav__username">Phill</span>
+          <span className="nav__username">Elise</span>
           <img src={LogoutIcon} alt="Log out" className="nav__logout-icon" />
         </button>
       )}
