@@ -1,7 +1,7 @@
-.saved-news__container {
+.saved-news {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 104px;
+  padding: 120px 104px 0;
 }
 
 .saved-news__header {
@@ -11,7 +11,7 @@
 .saved-news__subtitle {
   font-size: 18px;
   line-height: 1.2;
-  color: #1a1b22;
+  color: rgba(26, 27, 34, 0.5);
   margin-bottom: 28px;
 }
 
