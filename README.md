@@ -1,16 +1,64 @@
-# React + Vite
+# News Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Demo](https://newsexplore.netlify.app/)  
+[Repository](https://github.com/prneiderball/se_project_final)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview
 
-## React Compiler
+News Explorer is a single-page React application that allows users to search for recent news articles, browse results, and save articles for later reading. The application integrates with a news API to fetch current articles and provides a user-friendly interface for exploring and organizing news content.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The project demonstrates modern React development practices including component-based architecture, client-side routing, asynchronous API communication, and dynamic UI rendering.
 
-## Expanding the ESLint configuration
+Key objectives:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Demonstrate modular React component architecture
+- Implement asynchronous API requests and loading states
+- Build a responsive and accessible user interface
+- Implement article saving and state-based UI updates
+
+---
+
+## Features
+
+- **Keyword News Search**: Users can search for articles based on keywords using a news API.
+- **Dynamic Results Rendering**: Articles are displayed dynamically as search results are returned.
+- **Saved Articles**: Users can save articles and access them on a dedicated Saved News page.
+- **Progressive Article Loading**: Initially displays a limited number of results with the option to load more.
+- **Authentication UI**: Includes login, registration, and success modals.
+- **Error Handling**: Displays user-friendly messages for failed API requests or invalid input.
+- **Responsive Layout**: Designed to function across desktop and mobile viewports.
+
+---
+
+## Architecture and Technologies
+
+- **React**: Functional components with Hooks (`useState`) for state management.
+- **React Router**: Client-side routing between the search page and saved articles page.
+- **Vite**: Fast development environment and build tool.
+- **JavaScript (ES6+)**: Modern syntax with modular imports and Promise-based API handling.
+- **CSS**: Component-based styling for layout and UI design.
+- **External News API**: Fetches real-time news articles based on search queries.
+- **Custom API Utilities**: Handles article saving and deletion operations.
+
+
+---
+
+## Installation
+
+To run the application locally, ensure you have **Node.js (v16+)** and **npm** installed.
+
+```bash
+# Clone the repository
+git clone https://github.com/prneiderball/se_project_final.git
+
+# Change into the project directory
+cd se_project_final
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
