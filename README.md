@@ -2,6 +2,7 @@
 
 [Live Demo](https://newsexplore.netlify.app/)  
 [Repository](https://github.com/prneiderball/se_project_final)
+Check out [this video](https://drive.google.com/file/d/1Z4x10BvZS-LAjcluWtS6jbU5PO_bAt5B/view?usp=drive_link), where I describe my project in more detail.
 
 ---
 
