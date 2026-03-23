@@ -32,6 +32,12 @@ function App() {
     setActiveModal(null);
   }
 
+  function handleLogin(e) {
+    e.preventDefault();
+    setIsLoggedIn(true);
+    closeModal();
+  }
+
   function handleSearch(keyword) {
     if (!keyword) {
       setSearchError("Please enter a keyword");
@@ -116,6 +122,7 @@ function App() {
         isOpen={activeModal === "login"}
         onClose={closeModal}
         openModal={openModal}
+        onSubmit={handleLogin}
       />
 
       <RegisterModal
