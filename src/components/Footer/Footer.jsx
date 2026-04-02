@@ -4,12 +4,12 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__copyright">
-        © 2024 Supersite, Powered by News API
-      </p>
+      <p className="footer__copyright">© 2024 Supersite, Powered by News API</p>
 
       <div className="footer__links">
-        <a href="/" className="footer__link">Home</a>
+        <a href="/" className="footer__link">
+          Home
+        </a>
         <a
           href="https://tripleten.com"
           target="_blank"

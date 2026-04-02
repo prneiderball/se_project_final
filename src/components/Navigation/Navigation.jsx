@@ -3,7 +3,7 @@ import "./Navigation.css";
 import LogoutIcon from "../../assets/logout-w.svg";
 import { NavLink } from "react-router-dom";
 
-function Navigation({ isLoggedIn, openModal }) {
+function Navigation({ isLoggedIn, openModal, onLogout, currentUser }) {
   return (
     <nav className="nav">
       <NavLink
@@ -33,8 +33,11 @@ function Navigation({ isLoggedIn, openModal }) {
       )}
 
       {isLoggedIn && (
-        <button className="nav__button nav__button_logged-in">
-          <span className="nav__username">Elise</span>
+        <button
+          className="nav__button nav__button_logged-in"
+          onClick={onLogout}
+        >
+          <span className="nav__username">{currentUser?.name || "User"}</span>
           <img src={LogoutIcon} alt="Log out" className="nav__logout-icon" />
         </button>
       )}

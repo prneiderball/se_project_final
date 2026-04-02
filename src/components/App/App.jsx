@@ -23,6 +23,7 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const [searchError, setSearchError] = useState(null);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [currentUser, setCurrentUser] = useState(null); // ← track user info
 
   function openModal(name) {
     setActiveModal(name);
@@ -34,8 +35,16 @@ function App() {
 
   function handleLogin(e) {
     e.preventDefault();
+    const email = e.target.email?.value || "user@example.com";
+    const name = e.target.name?.value || email.split("@")[0];
+    setCurrentUser({ email, name }); // ← store user locally
     setIsLoggedIn(true);
     closeModal();
+  }
+
+  function handleLogout() {
+    setIsLoggedIn(false);
+    setCurrentUser(null);
   }
 
   function handleSearch(keyword) {
@@ -70,9 +79,20 @@ function App() {
     });
   }
 
+  function handleRemoveArticle(articleId) { // ← add remove handler
+    removeArticle(articleId).then(() => {
+      setSavedArticles((prev) => prev.filter((a) => a._id !== articleId));
+    });
+  }
+
   return (
     <div className="page">
-      <Header isLoggedIn={isLoggedIn} openModal={openModal} />
+      <Header
+        isLoggedIn={isLoggedIn}
+        currentUser={currentUser}
+        openModal={openModal}
+        onLogout={handleLogout} // ← pass logout down
+      />
 
       <main className="page__content">
         <Routes>
@@ -95,6 +115,7 @@ function App() {
                     setVisibleCount={setVisibleCount}
                     savedArticles={savedArticles}
                     onSaveArticle={handleSaveArticle}
+                    onRemoveArticle={handleRemoveArticle} // ← pass remove down
                   />
                   <About />
                 </div>
@@ -108,7 +129,7 @@ function App() {
               <div className="app">
                 <SavedNews
                   savedArticles={savedArticles}
-                  setSavedArticles={setSavedArticles}
+                  onRemoveArticle={handleRemoveArticle} // ← use handler, not setter
                 />
               </div>
             }
