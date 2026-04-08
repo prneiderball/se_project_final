@@ -3,13 +3,13 @@ import "./Navigation.css";
 import LogoutIcon from "../../assets/logout-w.svg";
 import { NavLink } from "react-router-dom";
 
-function Navigation({ isLoggedIn, openModal, onLogout, currentUser }) {
+function Navigation({ isLoggedIn, openModal, onLogout, currentUser, isDark }) {
   return (
     <nav className="nav">
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "nav__link nav__link_active" : "nav__link"
+          `nav__link${isActive ? " nav__link_active" : ""}${isDark ? " nav__link_dark" : ""}`
         }
       >
         Home
@@ -19,7 +19,7 @@ function Navigation({ isLoggedIn, openModal, onLogout, currentUser }) {
         <NavLink
           to="/saved-news"
           className={({ isActive }) =>
-            isActive ? "nav__link nav__link_active" : "nav__link"
+            `nav__link${isActive ? " nav__link_active" : ""}${isDark ? " nav__link_dark" : ""}`
           }
         >
           Saved articles
@@ -27,18 +27,25 @@ function Navigation({ isLoggedIn, openModal, onLogout, currentUser }) {
       )}
 
       {!isLoggedIn && (
-        <button onClick={() => openModal("login")} className="nav__button">
+        <button
+          onClick={() => openModal("login")}
+          className={`nav__button${isDark ? " nav__button_dark" : ""}`}
+        >
           Sign in
         </button>
       )}
 
       {isLoggedIn && (
         <button
-          className="nav__button nav__button_logged-in"
+          className={`nav__button nav__button_logged-in${isDark ? " nav__button_logged-in_dark" : ""}`}
           onClick={onLogout}
         >
           <span className="nav__username">{currentUser?.name || "User"}</span>
-          <img src={LogoutIcon} alt="Log out" className="nav__logout-icon" />
+          <img
+            src={LogoutIcon}
+            alt="Log out"
+            className={`nav__logout-icon${isDark ? " nav__logout-icon_dark" : ""}`}
+          />
         </button>
       )}
     </nav>

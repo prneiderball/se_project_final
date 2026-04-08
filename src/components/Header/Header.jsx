@@ -8,7 +8,10 @@ function Header({ isLoggedIn, openModal, onLogout, currentUser }) {
   const isHomePage = location.pathname === "/";
   return (
     <header className={`header ${isHomePage ? "header_light" : "header_dark"}`}>
-      <Link to="/" className="header__logo">
+      <Link
+        to="/"
+        className={`header__logo ${isHomePage ? "" : "header__logo_dark"}`}
+      >
         NewsExplorer
       </Link>
       <Navigation
@@ -16,6 +19,7 @@ function Header({ isLoggedIn, openModal, onLogout, currentUser }) {
         openModal={openModal}
         onLogout={onLogout}
         currentUser={currentUser}
+        isDark={!isHomePage}
       />
     </header>
   );
