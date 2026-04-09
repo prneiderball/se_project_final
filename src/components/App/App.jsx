@@ -23,7 +23,7 @@ function App() {
   const [savedArticles, setSavedArticles] = useState([]);
   const [searchError, setSearchError] = useState(null);
   const [visibleCount, setVisibleCount] = useState(3);
-  const [currentUser, setCurrentUser] = useState(null); // ← track user info
+  const [currentUser, setCurrentUser] = useState(null);
 
   function openModal(name) {
     setActiveModal(name);
@@ -79,7 +79,8 @@ function App() {
     });
   }
 
-  function handleRemoveArticle(articleId) { // ← add remove handler
+  function handleRemoveArticle(articleId) {
+    // ← add remove handler
     removeArticle(articleId).then(() => {
       setSavedArticles((prev) => prev.filter((a) => a._id !== articleId));
     });
