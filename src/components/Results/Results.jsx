@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Results.css";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
@@ -13,7 +13,7 @@ function Results({
   visibleCount,
   setVisibleCount,
   onSaveArticle,
-  savedArticles = [],
+  savedArticles = []
 }) {
   const canShowMore = articles.length > visibleCount;
 
@@ -54,7 +54,7 @@ function Results({
       <h2 className="results__title">Search results</h2>
 
       <div className="results__grid">
-        {articles.slice(0, visibleCount).map((article, index) => (
+        {articles.slice(0, visibleCount).map((article) => (
           <NewsCard
             key={article.url}
             article={article}
