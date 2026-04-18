@@ -36,8 +36,8 @@ function App() {
   function handleLogin(e) {
     e.preventDefault();
     const email = e.target.email?.value || "user@example.com";
-    const name = e.target.name?.value || email.split("@")[0];
-    setCurrentUser({ email, name }); // ← store user locally
+    const name = e.target.username?.value || email.split("@")[0];
+    setCurrentUser({ email, name }); //
     setIsLoggedIn(true);
     closeModal();
   }
@@ -151,6 +151,7 @@ function App() {
         isOpen={activeModal === "register"}
         onClose={closeModal}
         openModal={openModal}
+        onSubmit={handleLogin}
       />
 
       <SuccessModel
