@@ -1,8 +1,8 @@
-export const authorize = (_email, _password) => {
+export const authorize = () => {
   return Promise.resolve({ token: "fake-jwt-token" });
 };
 
-export const checkToken = (_token) => {
+export const checkToken = () => {
   return Promise.resolve({
     data: {
       name: "Elise",
