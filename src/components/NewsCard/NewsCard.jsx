@@ -1,0 +1,52 @@
+import React from "react";
+import "./NewsCard.css";
+
+function NewsCard({ article, isLoggedIn, isSaved, onSave, onDelete }) {
+  const { title, description, publishedAt, urlToImage, source } = article;
+
+  return (
+    <div className="news-card">
+      {article.keyword && (
+        <span className="news-card__keyword">{article.keyword}</span>
+      )}
+
+      <button
+        className={`news-card__bookmark ${
+          isSaved
+            ? "news-card__bookmark_active"
+            : !isLoggedIn
+            ? "news-card__bookmark_inactive"
+            : ""
+        }`}
+        type="button"
+        onClick={() => {
+          if (!isLoggedIn) return;
+
+          if (isSaved) {
+            onDelete?.(article);
+          } else {
+            onSave?.(article);
+          }
+        }}
+      >
+        {!isLoggedIn && (
+          <span className="news-card__tooltip">Sign in to save articles</span>
+        )}
+      </button>
+
+      <img className="news-card__image" src={urlToImage} alt={title} />
+      <p className="news-card__date">
+        {new Date(publishedAt).toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        })}
+      </p>
+      <h3 className="news-card__title">{title}</h3>
+      <p className="news-card__text">{description}</p>
+      <p className="news-card__source">{source.name}</p>
+    </div>
+  );
+}
+
+export default NewsCard;
