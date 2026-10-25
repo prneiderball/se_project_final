@@ -32,3 +32,11 @@
   background-color: #fff;
   border-bottom: 1px solid #d1d2d6;
 }
+
+@media (max-width: 768px) {
+  .header {
+    max-width: 344px;
+    width: 100%;
+  }
+
+}
