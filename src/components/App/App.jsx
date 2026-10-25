@@ -80,7 +80,6 @@ function App() {
   }
 
   function handleRemoveArticle(articleId) {
-    // ← add remove handler
     removeArticle(articleId).then(() => {
       setSavedArticles((prev) => prev.filter((a) => a._id !== articleId));
     });
@@ -92,7 +91,7 @@ function App() {
         isLoggedIn={isLoggedIn}
         currentUser={currentUser}
         openModal={openModal}
-        onLogout={handleLogout} // ← pass logout down
+        onLogout={handleLogout} 
       />
 
       <main className="page__content">
@@ -116,7 +115,7 @@ function App() {
                     setVisibleCount={setVisibleCount}
                     savedArticles={savedArticles}
                     onSaveArticle={handleSaveArticle}
-                    onRemoveArticle={handleRemoveArticle} // ← pass remove down
+                    onRemoveArticle={handleRemoveArticle} 
                   />
                   <About />
                 </div>
@@ -130,7 +129,7 @@ function App() {
               <div className="app">
                 <SavedNews
                   savedArticles={savedArticles}
-                  onRemoveArticle={handleRemoveArticle} // ← use handler, not setter
+                  onRemoveArticle={handleRemoveArticle} 
                 />
               </div>
             }
