@@ -27,3 +27,14 @@
   margin: 0 0 88px;
   color: #fff;
 }
+
+@media (max-width: 768px) {
+  .hero__content {
+    max-width: 385px;
+    width: 100%;
+  }
+
+  .hero__title {
+    max-width: 385px;
+  }
+}
