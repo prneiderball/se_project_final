@@ -20,6 +20,10 @@
   width: auto;
 }
 
+.header__menu-btn {
+  display: none;
+}
+
 .header__logo_dark {
   color: #1a1b22;
 }
@@ -37,6 +41,10 @@
   .header {
     max-width: 344px;
     width: 100%;
+  }
+
+  .header__menu-btn {
+    display:block; 
   }
 
 }

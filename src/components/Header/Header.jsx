@@ -17,6 +17,7 @@ function Header({ isLoggedIn, openModal, onLogout, currentUser }) {
       >
         NewsExplorer
       </Link>
+      <button className="header__menu-btn" type="button" ></button>
       <Navigation
         isLoggedIn={isLoggedIn}
         openModal={openModal}
