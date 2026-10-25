@@ -14,7 +14,7 @@ import { searchNews } from "../../utils/newsApi.js";
 import { saveArticle, removeArticle } from "../../utils/api.js";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [activeModal, setActiveModal] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [articles, setArticles] = useState([]);

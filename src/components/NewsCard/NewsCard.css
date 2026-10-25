@@ -90,3 +90,65 @@
   font-size: 12px;
   color: #999;
 }
+
+@media (max-width: 768px) {
+  .news-card {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
+  }
+
+  .news-card__image {
+    width: 100%;
+    height: 196px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .news-card__date {
+    margin: 16px 16px 8px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .news-card__title {
+    margin: 0 16px;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 400;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .news-card__text {
+    margin: 10px 16px 0;
+    font-size: 16px;
+    line-height: 20px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .news-card__source {
+    margin: auto 16px 0;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .news-card__bookmark {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+  }
+}
