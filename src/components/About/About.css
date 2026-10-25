@@ -9,9 +9,10 @@
 .about__column-img {
   width: 464px;
   height: 464px;
-
-  background-color: #b3b3b3;
+  object-fit: cover;
+  object-position: center;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .about__column-text {
@@ -47,8 +48,8 @@
     max-width: 272px;
     height: auto;
     aspect-ratio: 1 / 1;
-    flex-shrink: 0;
   }
+
 
   .about__column-text {
     width: 100%;

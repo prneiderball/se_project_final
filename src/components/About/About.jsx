@@ -1,10 +1,15 @@
 import React from "react";
 import "./About.css";
+import pictureSelf from "../../assets/pictureself.jpg";
 
 function About() {
   return (
     <section className="about__columns-wrapper">
-      <div className="about__column-img"></div>
+      <img
+  className="about__column-img"
+  src={pictureSelf}
+  alt="Phillip Neider-Ball"
+/>
       <div className="about__column-text">
         <h2 className="about__title">About the author</h2>
         <p className="about__text">
