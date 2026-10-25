@@ -43,3 +43,33 @@
 .footer__social-icon_type_linkedin {
   background-image: url("../../assets/linkedin.svg");
 }
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 32px;
+    padding: 20px 16px;
+    width: 100%;
+  }
+
+  .footer__links {
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .footer__link {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .footer__social {
+    gap: 24px;
+    flex-shrink: 0;
+  }
+
+  .footer__copyright {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

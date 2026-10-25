@@ -11,3 +11,11 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+@media (max-width: 768px) {
+  .page__background-img {
+    height: 536px;
+    min-height: 536px;
+    background-size: cover;
+    background-position: center;
+  }
+}

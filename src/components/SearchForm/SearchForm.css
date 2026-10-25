@@ -53,3 +53,29 @@
   line-height: 1.2;
   color: rgba(255, 255, 255, 0.85);
 }
+@media (max-width: 768px) {
+  .search {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .search__field {
+    width: 100%;
+  }
+
+  .search__input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+  }
+
+  .search__button {
+    position: static;
+    width: 100%;
+    height: 56px;
+    font-size: 18px;
+  }
+}

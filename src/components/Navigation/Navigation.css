@@ -109,7 +109,7 @@
     left: 0;
     right: 0;
     padding: 24px 16px 24px;
-    background-color: #1a1b22;
+    background-color: #1A1B22;
     border-radius: 0 0 16px 16px;
     box-sizing: border-box;
   }
@@ -138,5 +138,9 @@
 
   .nav_open .nav__username {
     color: #fff;
+  }
+
+   .nav__link::after {
+    display: none;
   }
 }
