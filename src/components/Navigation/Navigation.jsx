@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 function Navigation({ isLoggedIn, openModal, onLogout, currentUser, isDark, isMenuOpen }) {
   return (
-    <nav className="nav">
+    <nav className={`nav ${isMenuOpen ? "nav_open" : ""}`}>
       <NavLink
         to="/"
         className={({ isActive }) =>

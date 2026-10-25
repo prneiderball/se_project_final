@@ -1,32 +1,59 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation.jsx";
-import {useState} from "react";
 
 function Header({ isLoggedIn, openModal, onLogout, currentUser }) {
-
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isHomePage = location.pathname === "/";
+
   return (
-    <header className={`header ${isHomePage ? "header_light" : "header_dark"}`}>
-      <Link
-        to="/"
-        className={`header__logo ${isHomePage ? "" : "header__logo_dark"}`}
+    <>
+      {isMenuOpen && (
+        <div
+          className="header__overlay"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      <header
+        className={`header ${isHomePage ? "header_light" : "header_dark"} ${
+          isMenuOpen ? "header_menu-open" : ""
+        }`}
       >
-        NewsExplorer
-      </Link>
-      <button className="header__menu-btn" type="button" ></button>
-      <Navigation
-        isLoggedIn={isLoggedIn}
-        openModal={openModal}
-        onLogout={onLogout}
-        currentUser={currentUser}
-        isDark={!isHomePage}
-        isMenuOpen={isMenuOpen}
-      />
-    </header>
+        <Link
+          to="/"
+          className={`header__logo ${
+            isHomePage ? "" : "header__logo_dark"
+          }`}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          NewsExplorer
+        </Link>
+
+        <button
+          className={`header__menu-btn ${
+            isMenuOpen ? "header__menu-btn_open" : ""
+          }`}
+          type="button"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <Navigation
+          isLoggedIn={isLoggedIn}
+          openModal={openModal}
+          onLogout={onLogout}
+          currentUser={currentUser}
+          isDark={!isHomePage}
+          isMenuOpen={isMenuOpen}
+        />
+      </header>
+    </>
   );
 }
 
