@@ -2,9 +2,12 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation.jsx";
+import {useState} from "react";
 
 function Header({ isLoggedIn, openModal, onLogout, currentUser }) {
+
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isHomePage = location.pathname === "/";
   return (
     <header className={`header ${isHomePage ? "header_light" : "header_dark"}`}>
