@@ -23,6 +23,7 @@ function Header({ isLoggedIn, openModal, onLogout, currentUser }) {
         onLogout={onLogout}
         currentUser={currentUser}
         isDark={!isHomePage}
+        isMenuOpen={isMenuOpen}
       />
     </header>
   );

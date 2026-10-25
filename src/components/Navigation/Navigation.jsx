@@ -3,7 +3,7 @@ import "./Navigation.css";
 import LogoutIcon from "../../assets/logout-w.svg";
 import { NavLink } from "react-router-dom";
 
-function Navigation({ isLoggedIn, openModal, onLogout, currentUser, isDark }) {
+function Navigation({ isLoggedIn, openModal, onLogout, currentUser, isDark, isMenuOpen }) {
   return (
     <nav className="nav">
       <NavLink
